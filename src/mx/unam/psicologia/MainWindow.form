@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="mx.unam.psicologia.MainWindow">
+  <grid id="27dc6" binding="applicationWindow" layout-manager="CardLayout" hgap="5" vgap="5">
+    <constraints>
+      <xy x="20" y="20" width="519" height="413"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="6a913" binding="panelBienvenida" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <card name="Card1"/>
+        </constraints>
+        <properties>
+          <preferredSize width="800" height="600"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="9f7b2" class="javax.swing.JTextPane" binding="JTexpaneInstrucciones">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value="¡Bienvenido!&#10;&#10;Por medio de este programa, realizaremos la prueba de igualación y el registro de los resultados. Por favor, sigue las instruciones.&#10;&#10;Instrucciones: &#10;&#10;1. Al presionar el boton &quot;Comenzar&quot; Se abrira la pantalla para introducir los datos del ensayo. Por favor introduce correctamente &#10;dichos datos, a fin de que podamos llevar un registro adecuado del participante. &#10;&#10;2. Al precionar el botón &quot;Continuar&quot;, se te presentará una pantalla que te muestra como se anotaran estos datos en el reporte. &#10;Aun tienes la opción de regresar a la pantalla anterior y corregirlos. Si deseas hacerlo, presiona &quot;Corregir&quot;.&#10;&#10;3. Cuando presiones el boton &quot;Continuar&quot;, la pantalla cambiara y Deberás presentarsela al participante quien comenzará el ensayo&#10;al dar click.&#10;&#10;4. Al finalizar, tu reporte sera guardado en la carpeta de la aplicación."/>
+            </properties>
+          </component>
+          <component id="74c97" class="javax.swing.JButton" binding="buttonComenzar">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Comenzar"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="62dda" binding="panelDatos" layout-manager="GridLayoutManager" row-count="7" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <card name="Card2"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="70985" class="javax.swing.JLabel" binding="labelNumeroCaso">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Número de Caso:"/>
+            </properties>
+          </component>
+          <component id="65026" class="javax.swing.JLabel" binding="labelNumeroEnsayo">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Número de Ensayo:"/>
+            </properties>
+          </component>
+          <component id="c88dc" class="javax.swing.JLabel" binding="labelApellidos">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Apellidos del Participante: "/>
+            </properties>
+          </component>
+          <component id="db0e3" class="javax.swing.JLabel" binding="labelNombres">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Nombres del Paricipante:"/>
+            </properties>
+          </component>
+          <component id="e78ee" class="javax.swing.JLabel" binding="labelAplicador">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Aplicador:"/>
+            </properties>
+          </component>
+          <component id="3ead" class="javax.swing.JButton" binding="buttonCancelar">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <label value="Cancelar"/>
+              <text value="Cancelar"/>
+            </properties>
+          </component>
+          <component id="2edfe" class="javax.swing.JTextField" binding="textFieldNumeroCaso">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="410d3" class="javax.swing.JTextField" binding="textFieldNumeroEnsayo">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="948c2" class="javax.swing.JTextField" binding="textFieldApellidos">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="8990a" class="javax.swing.JTextField" binding="textFieldNombres">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="c0a3e" class="javax.swing.JTextField" binding="textFieldAplicador">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="6ed2" class="javax.swing.JButton" binding="buttonAceptar">
+            <constraints>
+              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <label value="Aceptar"/>
+              <text value="Aceptar"/>
+            </properties>
+          </component>
+          <component id="2df0a" class="javax.swing.JLabel" binding="labelIntroduceDatos">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Por favor, introduce los datos a continuación:"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="dbec4" binding="panelConfirmacion" layout-manager="GridLayoutManager" row-count="7" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <card name="Card3"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="8c9fd" class="javax.swing.JButton" binding="buttonCorregir">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Corregir"/>
+            </properties>
+          </component>
+          <component id="67358" class="javax.swing.JLabel" binding="labelConfirmaNumeroCaso">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Numero de caso:"/>
+            </properties>
+          </component>
+          <component id="be8cb" class="javax.swing.JLabel" binding="labelConfirmaNumeroEnsayo">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Número de Ensayo: "/>
+            </properties>
+          </component>
+          <component id="f194b" class="javax.swing.JLabel" binding="labelConfirmaApellidos">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Apellidos del Participante: "/>
+            </properties>
+          </component>
+          <component id="385f1" class="javax.swing.JLabel" binding="labelConfirmaNombres">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Nombres del Participante: "/>
+            </properties>
+          </component>
+          <component id="591a5" class="javax.swing.JLabel" binding="labelConfirmaAplicador">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Aplicador: "/>
+            </properties>
+          </component>
+          <component id="e9c17" class="javax.swing.JButton" binding="buttonContinuarAEnsayo">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Continuar"/>
+            </properties>
+          </component>
+          <component id="f0053" class="javax.swing.JLabel" binding="labelConfirmaDatos">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="¿Son Corrextos estos datos?"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

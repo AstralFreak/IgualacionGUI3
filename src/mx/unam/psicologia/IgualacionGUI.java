@@ -82,7 +82,7 @@ public class IgualacionGUI {
     private JButton buttonMostrarReporte;
     private JPanel panelReporte;
     private JPanel panelResultadosCuantitativos;
-    private JButton button1;
+    private JButton buttonFinalizar;
     private JLabel labelReporteParticipante;
     private JLabel labelReporteNumeroCaso;
     private JLabel labelReporteNumeroEnsayo;
@@ -127,11 +127,7 @@ public class IgualacionGUI {
 
 
 
-    /**
-     * Obtener la resolucion del dispositivo
-     */
-    static GraphicsDevice device = GraphicsEnvironment
-            .getLocalGraphicsEnvironment().getScreenDevices()[0];
+
 
     /**
      *
@@ -142,6 +138,8 @@ public class IgualacionGUI {
         JFrame frame = new JFrame("Igualación a la Muestra");
         frame.setContentPane(new IgualacionGUI().applicationWindow);
         frame.setDefaultCloseOperation(3);
+        /*frame.setExtendedState(Frame.MAXIMIZED_BOTH);
+        frame.isUndecorated();*/
         frame.pack();
         frame.setVisible(true);
 
@@ -211,8 +209,9 @@ public class IgualacionGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 panelConfirmacion.setVisible(false);
-                device.setFullScreenWindow(null);
                 panelReady.setVisible(true);
+
+
 
                 /**
                  * Get Date
@@ -244,6 +243,8 @@ public class IgualacionGUI {
             public void mousePressed(MouseEvent e) {
                 panelReady.setVisible(false);
                 panelPregunta1.setVisible(true);
+
+
                 startTime1 = System.nanoTime();
                 super.mousePressed(e);
             }
@@ -261,6 +262,7 @@ public class IgualacionGUI {
                 r1 = "42";
                 verdad1 = 1;
                 labelReporteRespuesta1.setText(String.valueOf(r1));
+                labelReporteCalificacion1.setForeground(Color.green);
                 labelReporteCalificacion1.setText("Correcta");
                 panelPregunta1.setVisible(false);
                 panelPregunta2.setVisible(true);
@@ -277,6 +279,7 @@ public class IgualacionGUI {
                 r1 = "32";
                 verdad1 = 0;
                 labelReporteRespuesta1.setText(String.valueOf(r1));
+                labelReporteCalificacion1.setForeground(Color.red);
                 labelReporteCalificacion1.setText("Incorrecta");
                 panelPregunta1.setVisible(false);
                 panelPregunta2.setVisible(true);
@@ -297,6 +300,7 @@ public class IgualacionGUI {
                 r2 = "32";
                 verdad2 = 1;
                 labelReporteRespuesta2.setText(String.valueOf(r2));
+                labelReporteCalificacion2.setForeground(Color.green);
                 labelReporteCalificacion2.setText("Correcta");
                 panelPregunta2.setVisible(false);
                 panelPregunta3.setVisible(true);
@@ -313,6 +317,7 @@ public class IgualacionGUI {
                 r2 = "22";
                 verdad2 = 0;
                 labelReporteRespuesta2.setText(String.valueOf(r2));
+                labelReporteCalificacion2.setForeground(Color.red);
                 labelReporteCalificacion2.setText("Incorrecta");
                 panelPregunta2.setVisible(false);
                 panelPregunta3.setVisible(true);
@@ -334,6 +339,7 @@ public class IgualacionGUI {
                 r3 = "1000";
                 verdad3 = 1;
                 labelReporteRespuesta3.setText(String.valueOf(r3));
+                labelReporteCalificacion3.setForeground(Color.green);
                 labelReporteCalificacion3.setText("Correcta");
                 panelPregunta3.setVisible(false);
                 panelWait.setVisible(true);
@@ -349,6 +355,7 @@ public class IgualacionGUI {
                 r3 = "0001";
                 verdad3 = 0;
                 labelReporteRespuesta3.setText(String.valueOf(r3));
+                labelReporteCalificacion3.setForeground(Color.red);
                 labelReporteCalificacion3.setText("Incorrecta");
                 panelPregunta3.setVisible(false);
                 panelWait.setVisible(true);
@@ -445,7 +452,7 @@ public class IgualacionGUI {
         /**
          * Acciones panelReporte
          */
-        button1.addActionListener(new ActionListener() {
+        buttonFinalizar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);

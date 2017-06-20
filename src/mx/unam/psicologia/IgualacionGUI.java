@@ -6,13 +6,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
  * Created by pablo on 18/06/17.
  */
-public class MainWindow {
+public class IgualacionGUI {
     private JPanel applicationWindow;
     /**
      * Elementos panelBienvenida
@@ -94,7 +96,7 @@ public class MainWindow {
     private JLabel labelReporteCalificacion3;
     private JLabel labelReporteTimer1;
     private JLabel labelReporteTimer2;
-    private JLabel LabelReporteTimer3;
+    private JLabel labelReporteTimer3;
 
     /**
      *
@@ -106,12 +108,24 @@ public class MainWindow {
     String apellidos;
     String nombres;
     String aplicador;
-    int r1;
-    int r2;
-    int r3;
+    String r1;
+    String r2;
+    String r3;
     int verdad1;
     int verdad2;
     int verdad3;
+    String fecha;
+
+    //TIMERSFINALES
+    double timer1, timer2, timer3;
+    //START TIMES
+    double startTime1, startTime2,startTime3;
+    //END TIMES
+    double endTime1, endTime2, endTime3;
+    //TIMERS NANOSECONDS
+
+
+
 
     /**
      * Obtener la resolucion del dispositivo
@@ -126,14 +140,14 @@ public class MainWindow {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Igualación a la Muestra");
-        frame.setContentPane(new MainWindow().applicationWindow);
+        frame.setContentPane(new IgualacionGUI().applicationWindow);
         frame.setDefaultCloseOperation(3);
         frame.pack();
         frame.setVisible(true);
 
     }
 
-    public MainWindow() {
+    public IgualacionGUI() {
 
         /**
          * Acciones de panelBienvenida
@@ -169,11 +183,11 @@ public class MainWindow {
                 /**
                  * Asignar los valores almacenados en las variables a las etiquetas correspondientes en panelConfirmacion
                  */
-                labelConfirmaNumeroCaso.setText("Número de Caso: "+ numeroCaso);
-                labelConfirmaNumeroEnsayo.setText("Número de Ensayo: "+ numeroEnsayo);
-                labelConfirmaApellidos.setText("Apellidos del Participante: " + apellidos);
-                labelConfirmaNombres.setText("Nombres del Participante: "+ nombres);
-                labelConfirmaAplicador.setText("Aplicador: "+ aplicador);
+                labelConfirmaNumeroCaso.setText(numeroCaso);
+                labelConfirmaNumeroEnsayo.setText(numeroEnsayo);
+                labelConfirmaApellidos.setText(apellidos);
+                labelConfirmaNombres.setText(nombres);
+                labelConfirmaAplicador.setText(aplicador);
 
                 /**
                  * Cerrar este pannel y mostrar el de confirmacion
@@ -206,12 +220,13 @@ public class MainWindow {
 
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
                 LocalDate localDate = LocalDate.now();
+                fecha = String.valueOf(localDate);
 
                 /**
                  * Set Final cualitative values in report labels
                  */
 
-                labelReporteParticipante.setText(apellidos + " " + nombres);
+                labelReporteParticipante.setText(apellidos + ", " + nombres);
                 labelReporteNumeroCaso.setText(numeroCaso);
                 labelReporteNumeroEnsayo.setText(numeroEnsayo);
                 labelReporteAplicador.setText(aplicador);
@@ -226,10 +241,11 @@ public class MainWindow {
 
         labelReady.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mousePressed(MouseEvent e) {
                 panelReady.setVisible(false);
                 panelPregunta1.setVisible(true);
-                super.mouseClicked(e);
+                startTime1 = System.nanoTime();
+                super.mousePressed(e);
             }
         });
 
@@ -239,24 +255,32 @@ public class MainWindow {
         labelP1R42.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                r1 = 42;
+                endTime1 = System.nanoTime();
+                timer1 = (endTime1 - startTime1) / 1000000000.0;
+                labelReporteTimer1.setText(String.valueOf(timer1) + " Segundos");
+                r1 = "42";
                 verdad1 = 1;
                 labelReporteRespuesta1.setText(String.valueOf(r1));
                 labelReporteCalificacion1.setText("Correcta");
                 panelPregunta1.setVisible(false);
                 panelPregunta2.setVisible(true);
+                startTime2 = System.nanoTime();
                 super.mousePressed(e);
             }
         });
         labelP1R32.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                r1 = 32;
+                endTime1 = System.nanoTime();
+                timer1 = (endTime1 - startTime1) / 1000000000.0;
+                labelReporteTimer1.setText(String.valueOf(timer1) + " Segundos");
+                r1 = "32";
                 verdad1 = 0;
                 labelReporteRespuesta1.setText(String.valueOf(r1));
                 labelReporteCalificacion1.setText("Incorrecta");
                 panelPregunta1.setVisible(false);
                 panelPregunta2.setVisible(true);
+                startTime2 = System.nanoTime();
                 super.mousePressed(e);
             }
         });
@@ -267,24 +291,32 @@ public class MainWindow {
         labelP2R32.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                r2 = 32;
+                endTime2 = System.nanoTime();
+                timer2 = (endTime2 - startTime2) / 1000000000.0;
+                labelReporteTimer2.setText(String.valueOf(timer2) + " Segundos");
+                r2 = "32";
                 verdad2 = 1;
                 labelReporteRespuesta2.setText(String.valueOf(r2));
                 labelReporteCalificacion2.setText("Correcta");
                 panelPregunta2.setVisible(false);
                 panelPregunta3.setVisible(true);
+                startTime3 = System.nanoTime();
                 super.mousePressed(e);
             }
         });
         labelP2R22.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                r2 = 22;
+                endTime2 = System.nanoTime();
+                timer2 = (endTime2 - startTime2) / 1000000000.0;
+                labelReporteTimer2.setText(String.valueOf(timer2) + " Segundos");
+                r2 = "22";
                 verdad2 = 0;
                 labelReporteRespuesta2.setText(String.valueOf(r2));
                 labelReporteCalificacion2.setText("Incorrecta");
                 panelPregunta2.setVisible(false);
                 panelPregunta3.setVisible(true);
+                startTime3 = System.nanoTime();
                 super.mousePressed(e);
             }
         });
@@ -296,7 +328,10 @@ public class MainWindow {
         labelP3R1000.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                r3 = 1000;
+                endTime3 = System.nanoTime();
+                timer3 = (endTime3 - startTime3) / 1000000000.0;
+                labelReporteTimer3.setText(String.valueOf(timer3) + " Segundos");
+                r3 = "1000";
                 verdad3 = 1;
                 labelReporteRespuesta3.setText(String.valueOf(r3));
                 labelReporteCalificacion3.setText("Correcta");
@@ -308,7 +343,10 @@ public class MainWindow {
         labelP3R0001.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                r3 = 0001;
+                endTime3 = System.nanoTime();
+                timer3 = (endTime3 - startTime3) / 1000000000.0;
+                labelReporteTimer3.setText(String.valueOf(timer3) + " Segundos");
+                r3 = "0001";
                 verdad3 = 0;
                 labelReporteRespuesta3.setText(String.valueOf(r3));
                 labelReporteCalificacion3.setText("Incorrecta");
@@ -325,6 +363,82 @@ public class MainWindow {
             public void actionPerformed(ActionEvent e) {
                 panelWait.setVisible(false);
                 panelReporte.setVisible(true);
+
+                /**
+                 * Registro CSV
+                 */
+
+
+                String stringCaso  = numeroCaso;
+                String stringEnsayo = numeroEnsayo;
+                String fileName = stringCaso + "-" + stringEnsayo + ".csv";
+
+
+
+                //Delimiter used in CSV file
+                String COMMA_DELIMITER = ",";
+                String NEW_LINE_SEPARATOR = "\n";
+
+                //CSV file header
+                String FILE_HEADER = "Fecha,Caso,NumeroEnsayo,ApellidosSujeto,NombresSujeto," +
+                        "NumeroAplicador,Respuesta1,Calificación1,Tiempo1,Respuesta2,Calificación2,Tiempo2,Respuesta3,Calificación3," +
+                        "Tiempo3";
+
+
+                FileWriter fileWriter = null;
+
+                try {
+                    fileWriter = new FileWriter(fileName);
+
+
+
+                    fileWriter = new FileWriter(fileName);
+
+                    fileWriter.append(FILE_HEADER);
+                    fileWriter.append(NEW_LINE_SEPARATOR);
+                    fileWriter.append(String.valueOf(fecha));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(numeroCaso));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(numeroEnsayo));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(apellidos));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(nombres));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(aplicador));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(r1));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(verdad1));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(timer1));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(r2));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(verdad2));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(timer2));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(r3));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(verdad3));
+                    fileWriter.append(COMMA_DELIMITER);
+                    fileWriter.append(String.valueOf(timer3));
+                }
+
+                catch (Exception er) {
+                    er.printStackTrace();
+                }finally {
+                    try {
+                        fileWriter.flush();
+                        fileWriter.close();
+                    }
+                    catch (IOException er){
+                        er.printStackTrace();
+                    }
+
+                }
             }
         });
 
@@ -342,4 +456,7 @@ public class MainWindow {
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }
+
+
+
 }

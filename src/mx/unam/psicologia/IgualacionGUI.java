@@ -222,7 +222,7 @@ public class IgualacionGUI {
                 fecha = String.valueOf(localDate);
 
                 /**
-                 * Set Final cualitative values in report labels
+                 * Set Final qualitative values in report labels
                  */
 
                 labelReporteParticipante.setText(apellidos + ", " + nombres);
